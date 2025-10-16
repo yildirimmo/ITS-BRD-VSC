@@ -1,0 +1,16 @@
+# Target labels
+ TestNewFont.Debug+ITSboard
+# Source files and their labels
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/TestNewFont/tmp/CMakeFiles/TestNewFont.Debug+ITSboard
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/TestNewFont/tmp/CMakeFiles/TestNewFont.Debug+ITSboard.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/TestNewFont/tmp/CMakeFiles/TestNewFont.Debug+ITSboard-complete.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-build.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-configure.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-database.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-download.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-executes.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-install.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-mkdir.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-patch.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-test.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-update.rule
