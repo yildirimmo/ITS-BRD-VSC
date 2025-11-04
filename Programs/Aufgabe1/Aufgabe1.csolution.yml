@@ -14,6 +14,15 @@ solution:
     - type: ITSboard
       board: STMicroelectronics::NUCLEO-F429ZI:Rev.B
       device: STMicroelectronics::STM32F429ZITx
+      target-set:
+        - set:
+          images:
+            - project-context: Aufgabe1.Debug
+          debugger:
+            name: ST-Link@pyOCD
+            port: 3333
+            protocol: swd
+            clock: 10000000
 
   # List of different build configurations.
   build-types:

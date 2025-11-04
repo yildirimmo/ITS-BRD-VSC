@@ -39,9 +39,13 @@ int main(void) {
      * hier sollen die zurückgegebenen Tokens bzw die Tastatureingaben gelesen werden
      *
      * */
-
+ 
+    int val = 0;
+    int result = 0;
+ 
+ 
     while(1) {
-        //ddc 
+        //ddc
         T_token token = nextToken();
  
         switch(token.tok){
@@ -64,7 +68,7 @@ int main(void) {
             result += val;
             stack_push(result);
                 break;
-
+ 
             case MULT:
             stack_pop(&val);
             result = val;
@@ -75,36 +79,40 @@ int main(void) {
             
             case DIV:
             stack_pop(&val);
+            if (val == 0) {
+                printStdout("Division durch 0 unzulaessig!");
+                break;
+            
+            }
             result = val;
             stack_pop(&val);
             result = val / result;
             stack_push(result);
                 break;
-
+ 
             case PRT:
             p();
                 break;
-
+ 
             case PRT_ALL:
             P();
                 break;
-
+ 
             case SWAP:
             r();
                 break;
-
+ 
             case CLEAR:
             C();
                 break;  
-
+ 
             case DOUBLE:
             d();
                 break;
-
+ 
         }
  
     }
 }
  
 // EOF
- 

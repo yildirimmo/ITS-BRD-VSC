@@ -12,6 +12,8 @@
 #include "lcd.h"
  
 #define STACK_SIZE 10
+#define ERNO -1
+#define EOK 0
  
 int Stack[STACK_SIZE];
  
@@ -26,12 +28,14 @@ int count = 0;
  
 int stack_push(int val){
     if (count >= STACK_SIZE){
-        return -1;
+        printStdout("Stackoverflow");
+        return ERNO;
+ 
     }
  
     Stack[count] = val;
     count++;
-    return 0;
+    return EOK;
 }
  
 /**
@@ -43,12 +47,13 @@ int stack_push(int val){
 int stack_pop(int *val){
  
     if (count <= 0){
-        return -1;
+        printStdout("Stackunderflow\n");
+        return ERNO;
     }
-
+ 
     count--;
     *val = Stack[count];
-    return 0;
+    return EOK;
  
 }
  
@@ -58,13 +63,23 @@ int stack_pop(int *val){
 */
  
 void p(){
-    if(count >= 10 && count < 0){
-        // nop
+    if(count > 10 || count <= 0){
+        printStdout("Stack ist leer\n");
     }
     else{
         int val = Stack[count - 1];
         char number_str[16];
         int len = 0;
+ 
+        bool negativ = false;
+        if (val < 0) {
+            negativ = true;
+            val = -val;
+        }
+        if (negativ){
+            printStdout("-");
+        }
+ 
  
  
         do {
@@ -86,7 +101,7 @@ void p(){
  
         printStdout(number_str);
         printStdout("\n");
-
+ 
     }
  
 }
@@ -99,7 +114,7 @@ void P(){
     int temp = count;
     for (int i = 0; i < count; count--){
         p();
-
+ 
     }
     count = temp;
  
@@ -111,6 +126,7 @@ void P(){
 */
  
 void C(){
+    clearStdout();
     count = 0;
 }
  
@@ -134,4 +150,3 @@ void r(){
     Stack[count - 1] = wert2;
     Stack[count - 2] = wert1;
 }
- 
