@@ -40,10 +40,6 @@ int main(void) {
      *
      * */
 
-    int val = 0;
-    int result = 0;
-
-
     while(1) {
         //ddc 
         T_token token = nextToken();
