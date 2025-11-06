@@ -185,6 +185,7 @@ project:
         - file: Inc/display.h
         - file: Inc/main.h
         - file: Inc/stack.h
+        - file: Inc/myError.h
 
     # Benutzerdefinierte Programmdateien
     - group: Program/User/Src

@@ -5,14 +5,16 @@ int stack_push(int val);
  
 int stack_pop(int *val);
  
-void p();
+int p();
  
-void P();
+int P();
  
-void C();
+int C();
 
-void d();
+int d();
 
-void r();
+int r();
+
+
  
 #endif

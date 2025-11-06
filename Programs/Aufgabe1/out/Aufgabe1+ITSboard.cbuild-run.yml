@@ -2,6 +2,7 @@ cbuild-run:
   generated-by: csolution version 2.11.0
   solution: ../Aufgabe1.csolution.yml
   target-type: ITSboard
+  target-set: <default>
   compiler: AC6
   board: STMicroelectronics::NUCLEO-F429ZI:Rev.B
   board-pack: Keil::STM32NUCLEO_BSP@1.8.1
@@ -39,6 +40,7 @@ cbuild-run:
     dbgconf: ../.cmsis/Aufgabe1+ITSboard.dbgconf
     gdbserver:
       - port: 3333
+    port: 3333
   debug-vars:
     vars: |
       __var DbgMCU_CR      = 0x00000007;   // DBGMCU_CR: DBG_SLEEP, DBG_STOP, DBG_STANDBY
