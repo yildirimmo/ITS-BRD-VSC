@@ -1,11 +1,11 @@
 
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION ${CMAKE_VERSION}) # this file comes with cmake
 
-set(command "/Users/yildirim/.vcpkg/artifacts/2139c4c6/tools.kitware.cmake/3.28.4/bin/cmake;--build;/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe1/tmp/1;--target;database")
+set(command "/Users/ramin/.vcpkg/artifacts/2139c4c6/tools.kitware.cmake/3.31.5/bin/cmake;--build;/Users/ramin/Desktop/GS_Neu/ITS-BRD-VSC/Programs/Aufgabe1/tmp/1;--target;database")
 set(log_merged "")
 set(log_output_on_failure "ON")
-set(stdout_log "/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database-out.log")
-set(stderr_log "/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database-err.log")
+set(stdout_log "/Users/ramin/Desktop/GS_Neu/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database-out.log")
+set(stderr_log "/Users/ramin/Desktop/GS_Neu/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database-err.log")
 execute_process(
   COMMAND ${command}
   RESULT_VARIABLE result
@@ -31,7 +31,7 @@ if(result)
   if (${log_merged})
     set(msg "${msg}\nSee also\n  ${stderr_log}")
   else()
-    set(msg "${msg}\nSee also\n  /Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database-*.log")
+    set(msg "${msg}\nSee also\n  /Users/ramin/Desktop/GS_Neu/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database-*.log")
   endif()
   if (${log_output_on_failure})
     message(SEND_ERROR "${msg}")
@@ -50,7 +50,7 @@ if(result)
   endif()
 else()
   if(NOT "Ninja" MATCHES "Ninja")
-    set(msg "Aufgabe1.Debug+ITSboard database command succeeded.  See also /Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database-*.log")
+    set(msg "Aufgabe1.Debug+ITSboard database command succeeded.  See also /Users/ramin/Desktop/GS_Neu/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database-*.log")
     message(STATUS "${msg}")
   endif()
 endif()

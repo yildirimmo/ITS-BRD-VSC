@@ -4,6 +4,6 @@
 
 method=source_dir
 command=
-source_dir=/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard
+source_dir=/Users/ramin/Desktop/GS_Neu/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard
 work_dir=
 

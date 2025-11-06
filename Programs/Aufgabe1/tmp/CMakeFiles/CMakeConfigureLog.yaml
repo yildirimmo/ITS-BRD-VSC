@@ -4,7 +4,18 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "/Users/yildirim/.vcpkg/artifacts/2139c4c6/tools.kitware.cmake/3.28.4/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake:233 (message)"
+      - "/Users/ramin/.vcpkg/artifacts/2139c4c6/tools.kitware.cmake/3.28.4/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake:233 (message)"
+      - "CMakeLists.txt:4 (project)"
+    message: |
+      The system is: Darwin - 24.6.0 - arm64
+...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/Users/ramin/.vcpkg/artifacts/2139c4c6/tools.kitware.cmake/3.31.5/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:205 (message)"
       - "CMakeLists.txt:4 (project)"
     message: |
       The system is: Darwin - 24.6.0 - arm64

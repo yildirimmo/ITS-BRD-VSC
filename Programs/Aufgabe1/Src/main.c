@@ -57,8 +57,8 @@ int main(void) {
             //-----------------------------------
             case NUMBER:
             erk2 = stack_push(token.val);
-            if (erk2 == OVERFLOW) {
-                printStdout("Stackoverflow");
+            if (erk2 != EOK) {
+                printStdout("Stackoverflow\n");
                 break;
             }
                 break;
@@ -81,8 +81,8 @@ int main(void) {
             result += val;
 
             erk2 = stack_push(result);
-            if (erk2 == OVERFLOW) {
-                printStdout("Stackoverflow");
+            if (erk2 != EOK) {
+                printStdout("Stackoverflow\n");
                 break;
             }
                 break;
@@ -106,8 +106,8 @@ int main(void) {
             result += val;
 
             erk2 = stack_push(result);
-            if (erk2 == OVERFLOW) {
-                printStdout("Stackoverflow");
+            if (erk2 != EOK) {
+                printStdout("Stackoverflow\n");
                 break;
             }
 
@@ -133,8 +133,8 @@ int main(void) {
             result *= val;
 
             erk2 = stack_push(result);
-            if (erk2 == OVERFLOW) {
-                printStdout("Stackoverflow");
+            if (erk2 != EOK) {
+                printStdout("Stackoverflow\n");
                 break;
             }
                 break;
@@ -164,8 +164,8 @@ int main(void) {
             result = val / result;
 
             erk2 = stack_push(result);
-            if (erk2 == OVERFLOW) {
-                printStdout("Stackoverflow");
+            if (erk2 != EOK) {
+                printStdout("Stackoverflow\n");
                 break;
             }
                 break;

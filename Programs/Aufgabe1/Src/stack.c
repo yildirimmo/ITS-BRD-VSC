@@ -80,16 +80,9 @@ int p(){
         char number_str[16]; 
         int len = 0;
  
-        bool negativ = false;
         if (val < 0) {
-            negativ = true;
-            val = -val; //(long)-val;
-        }
-        if (negativ){
             printStdout("-");
         }
- 
- 
  
         // Solange den Val nehmen, modulo 10 verrechnen und mit char '0' addieren.
         /*
@@ -106,10 +99,14 @@ int p(){
         number_str = '0' '3' '2' '1'
         */
         do {
-            int digit = (val % 10 + '0');
-            number_str[len++] = digit;
+            int digit = (val % 10);
+            if(digit < 0) {
+                digit = -digit;
+            }
+
+            number_str[len++] = digit + '0';
             val /= 10;
-        } while(val > 0);
+        } while(val != 0);
 
         // Signalisieren, dass hier das Ende vom String ist
         number_str[len] = '\0';
