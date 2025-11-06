@@ -1,0 +1,40 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Testordner/tmp/CMakeFiles/Testordner.Debug+ITSboard-executes"
+		},
+		{
+			"file" : "/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Testordner/tmp/CMakeFiles/Testordner.Debug+ITSboard-executes.rule"
+		},
+		{
+			"file" : "/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Testordner/tmp/Testordner.Debug+ITSboard/src/Testordner.Debug+ITSboard-stamp/Testordner.Debug+ITSboard-executes.rule"
+		},
+		{
+			"file" : "/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Testordner/tmp/Testordner.Debug+ITSboard/src/Testordner.Debug+ITSboard-stamp/Testordner.Debug+ITSboard-build.rule"
+		},
+		{
+			"file" : "/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Testordner/tmp/Testordner.Debug+ITSboard/src/Testordner.Debug+ITSboard-stamp/Testordner.Debug+ITSboard-configure.rule"
+		},
+		{
+			"file" : "/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Testordner/tmp/Testordner.Debug+ITSboard/src/Testordner.Debug+ITSboard-stamp/Testordner.Debug+ITSboard-patch.rule"
+		},
+		{
+			"file" : "/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Testordner/tmp/Testordner.Debug+ITSboard/src/Testordner.Debug+ITSboard-stamp/Testordner.Debug+ITSboard-update.rule"
+		},
+		{
+			"file" : "/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Testordner/tmp/Testordner.Debug+ITSboard/src/Testordner.Debug+ITSboard-stamp/Testordner.Debug+ITSboard-download.rule"
+		},
+		{
+			"file" : "/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Testordner/tmp/Testordner.Debug+ITSboard/src/Testordner.Debug+ITSboard-stamp/Testordner.Debug+ITSboard-mkdir.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Testordner.Debug+ITSboard"
+		],
+		"name" : "Testordner.Debug+ITSboard-executes"
+	}
+}

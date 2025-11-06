@@ -1,0 +1,20 @@
+build-idx:
+  generated-by: csolution version 2.11.0
+  cdefault: ${CMSIS_COMPILER_ROOT}/cdefault.yml
+  csolution: Testordner.csolution.yml
+  cbuild-run: out/Testordner+ITSboard.cbuild-run.yml
+  tmpdir: tmp
+  cprojects:
+    - cproject: Testordner.cproject.yml
+  cbuilds:
+    - cbuild: out/Testordner/ITSboard/Debug/Testordner.Debug+ITSboard.cbuild.yml
+      project: Testordner
+      configuration: .Debug+ITSboard
+      messages:
+        info:
+          - Testordner.cbuild-pack.yml - file is already up-to-date
+          - Testordner+ITSboard.cbuild-run.yml - file is already up-to-date
+          - Testordner.Debug+ITSboard.cbuild.yml - file is already up-to-date
+      packs-unused:
+        - pack: ARM::CMSIS-DSP@1.16.2
+        - pack: ARM::CMSIS-NN@7.0.0

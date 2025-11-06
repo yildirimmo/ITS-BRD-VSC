@@ -54,6 +54,7 @@ int main(void) {
                 break;
  
             case PLUS:
+            result = 0;
             stack_pop(&val);
             result += val;
             stack_pop(&val);
@@ -62,6 +63,7 @@ int main(void) {
                 break;
             
             case MINUS:
+            result = 0;
             stack_pop(&val);
             result = -val;
             stack_pop(&val);
@@ -70,6 +72,7 @@ int main(void) {
                 break;
  
             case MULT:
+            result = 0;
             stack_pop(&val);
             result = val;
             stack_pop(&val);
@@ -78,6 +81,7 @@ int main(void) {
                 break;
             
             case DIV:
+            result = 0;
             stack_pop(&val);
             if (val == 0) {
                 printStdout("Division durch 0 unzulaessig!");
