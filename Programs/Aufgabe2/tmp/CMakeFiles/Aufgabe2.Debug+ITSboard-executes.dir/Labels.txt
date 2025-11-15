@@ -1,0 +1,12 @@
+# Target labels
+ Aufgabe2.Debug+ITSboard
+# Source files and their labels
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe2/tmp/CMakeFiles/Aufgabe2.Debug+ITSboard-executes
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe2/tmp/CMakeFiles/Aufgabe2.Debug+ITSboard-executes.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe2/tmp/Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-executes.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe2/tmp/Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-build.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe2/tmp/Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-configure.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe2/tmp/Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-patch.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe2/tmp/Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-update.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe2/tmp/Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-download.rule
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe2/tmp/Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-mkdir.rule

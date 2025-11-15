@@ -117,10 +117,18 @@
   "cmake.ignoreCMakeListsMissing": true,
   "C_Cpp_Runner.msvcBatchPath": "",
   "clangd.arguments": [
-    "--compile-commands-dir=/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe1/out/Aufgabe1/ITSboard/Debug"
+    "--compile-commands-dir=/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe2/out/Aufgabe2/ITSboard/Debug"
   ],
   "python.analysis.extraPaths": [
     "/Users/yildirim/.vcpkg/artifacts/2139c4c6/debuggers.arm.armdbg/6.6.1/sw/osgi/dbgcore.app/Contents/Eclipse/plugins/com.arm.debug.interpreter.jython.api_6.6.1.202508041948"
   ],
-  "debug.hideSlowPreLaunchWarning": true
+  "debug.hideSlowPreLaunchWarning": true,
+  "files.associations": {
+    "stm32f4xx_hal.h": "c",
+    "error.h": "c",
+    "additionalfonts.h": "c",
+    "timer.h": "c",
+    "stdint.h": "c"
+  },
+  "debug.showInStatusBar": "never"
 }

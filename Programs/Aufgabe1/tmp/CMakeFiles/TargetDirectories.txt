@@ -1,8 +1,8 @@
-/Users/ramin/Desktop/GS_Neu/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/database.dir
-/Users/ramin/Desktop/GS_Neu/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard.dir
-/Users/ramin/Desktop/GS_Neu/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-build.dir
-/Users/ramin/Desktop/GS_Neu/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-configure.dir
-/Users/ramin/Desktop/GS_Neu/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-executes.dir
-/Users/ramin/Desktop/GS_Neu/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-database.dir
-/Users/ramin/Desktop/GS_Neu/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/edit_cache.dir
-/Users/ramin/Desktop/GS_Neu/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/rebuild_cache.dir
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/database.dir
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard.dir
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-build.dir
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-configure.dir
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-executes.dir
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-database.dir
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/edit_cache.dir
+/Users/yildirim/Desktop/ITSBoard/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/rebuild_cache.dir

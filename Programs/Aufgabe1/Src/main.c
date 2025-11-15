@@ -31,9 +31,7 @@
 int main(void) {
     initITSboard();    // Initialisierung des ITS Boards
     initDisplay();      // Initialisierung des Displays
-    
-    GUI_init(DEFAULT_BRIGHTNESS);   // Initialisierung des LCD Boards mit Touch
-    TP_Init(false);                 // Initialisierung des LCD Boards mit Touch
+
  
  
     makeKeyPad(); //Basic Keypad wird ausgegeben
