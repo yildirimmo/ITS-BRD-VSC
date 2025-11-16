@@ -1,6 +1,7 @@
+#include <stdint.h>
 
-int zuordnung_Signal();
+uint32_t zuordnung_Signal();
 
-int zuordnung_Phasenwechsel();
+uint32_t zuordnung_Phasenwechsel();
 
-int drehgrad_messer();
+uint32_t drehgrad_messer();

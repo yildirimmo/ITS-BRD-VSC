@@ -130,5 +130,6 @@
     "timer.h": "c",
     "stdint.h": "c"
   },
-  "debug.showInStatusBar": "never"
+  "debug.showInStatusBar": "never",
+  "C_Cpp.errorSquiggles": "disabled"
 }
