@@ -18,6 +18,8 @@ static int PHASE_D;
  */
 int zuordnung_Signal(){
     uint32_t current = GPIOF->IDR;
+    //Masken für die Phasen implementieren und vergleichen
+    //Rückgabe ist einfach welche Phase gerade ist
     char phase_a_pressed;
     return 1;
 }

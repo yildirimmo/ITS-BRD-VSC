@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include "lcd.h"
 #include "timer.h"
+#include "input.h"
 
 
 
@@ -11,7 +12,7 @@
 /**
  * @brief Der Drehwinkel wird auf dem Display ausgegeben
  */
-void drehwinkel_ausgeben(uint32_t val){
+void drehwinkel_ausgeben(uint16_t val){
     //lcdPrintS("Winkel\t:%d\tGrad", val);
     printf("Winkel\t:%d\tGrad", val);
 }
@@ -20,7 +21,7 @@ void drehwinkel_ausgeben(uint32_t val){
 /**
  * @brief die Geschwindigkeit wird auf dem Display ausgegeben
  */
-void winkelgeschwindigkeit_ausgeben(uint32_t val){
+void winkelgeschwindigkeit_ausgeben(uint16_t val){
     //lcdPrintS("Geschwindigkeit\t:%u\tGrad/s");
     printf("Winkel\t:%d\tGrad", val);
 }
@@ -31,6 +32,10 @@ void led_einschalten(){
 
 void led_vorwaerts(){
     //d23, wenn vorwärtsrichtung erkannt
+    uint16_t input_a = zuordnung_Signal();
+
+    uint16_t input_b = zuordnung_Signal();
+
 }
 
 void led_rueckwaerts(){
