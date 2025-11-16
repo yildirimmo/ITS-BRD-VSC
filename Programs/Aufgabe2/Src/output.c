@@ -31,18 +31,17 @@ void led_einschalten(){
 }
 
 void led_vorwaerts(){
-    //d23, wenn vorwärtsrichtung erkannt
-    uint16_t input_a = zuordnung_Signal();
-
-    uint16_t input_b = zuordnung_Signal();
-
+    //d23 anschalten
+    GPIOE->BSRR = (0x01 << 8);
 }
 
 void led_rueckwaerts(){
-    //d22 wenn rückwärtsrichtung erkannt
+    //d22 anschalten
+    GPIOE->BSRR = (0x01 << 7);
 }
 
 void led_fehler(){
-    //d21 wenn fehler erkannt
+    //d21 anschalten
+    GPIOE->BSRR = (0x01 << 6);
 }
 

@@ -1,6 +1,7 @@
 #include "stm32f429xx.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include "output.h"
 
 // Kanal A = GPIOF IDR PIN 0 
 // Kanal B = GPIOF IDR PIN 1
