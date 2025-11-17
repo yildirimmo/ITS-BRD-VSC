@@ -19,11 +19,13 @@
 #include <stdint.h>
 #include "output.h"
 #include "input.h"
+#include "calc.h"
 
 static uint8_t letztePhase = PHASE_A;
 static int32_t phasenZähler = 0;
 static int32_t letzter_zähler = 0;
 static uint32_t last_ts = 0;
+uint32_t current_ts = 0;
 
 int main(void) {
 	initITSboard();    // Initialisierung des ITS Boards
@@ -35,40 +37,66 @@ int main(void) {
 	input_init();
 	output_init();
 	
-
-	uint32_t last_update = 0;
 	
-	uint32_t current_ts = 0;
 	uint8_t mach_update;
+	
+	uint8_t current_phase;
 
+	uint32_t zuordnung;
 
+	double current_winkel;
+	letztePhase = zuordnung_Signal();
 	last_ts = getTimeStamp();
+	double last_winkel = drehwinkelrechner(phasenZähler);
 	// Test in Endlosschleife
 	while(1) {
 
-
-		current_ts = getTimeStamp();
 		
+		current_phase = zuordnung_Signal();
+		current_ts = getTimeStamp();
+		current_winkel = drehwinkelrechner(phasenZähler);
+		uint32_t zuordnung = zuordnung_Phasenwechsel(letztePhase, current_phase);
+		
+		//switch um phasenwechsel zuzuordnen
+		switch(zuordnung){
+			case VORWÄRTSLAUF:
+				led_vorwaerts();
+				phasenZähler++;
+				break;
 
-		//update
-		if (current_ts - last_update >= 250){
-			last_update = current_ts;
+			case RÜCKWÄRTSLAUF:
+				led_rueckwaerts();
+				phasenZähler--;
+				break;
+
+			case NOCHANGE:
+				break;
+			
+			case FEHLER:
+				led_fehler();
+				break;
+
+		}
+		//Erkennung ob s6 gedrückt wurde, wenn ja, wird led_fehler() zurückgesetzt
+		s6_leser();
+
+		//update display
+		
+		if (current_ts - last_ts >= 250){
+			last_ts = current_ts;
 			mach_update = 1;
 		} else {
 			mach_update = 0;
 		}
 
-
-		if (mach_update){
-			drehwinkel_ausgeben(2); //gelesener Wert aus Python
-			winkelgeschwindigkeit_ausgeben(2); //gelesener wert aus python bzw gpiof -> idr
-		}
-
+		
 
 	}
 
 
 }
+
+
 
 
 

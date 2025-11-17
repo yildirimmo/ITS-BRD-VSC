@@ -17,8 +17,6 @@ uint32_t zuordnung_Signal();
 
 uint32_t zuordnung_Phasenwechsel(uint32_t phase1, uint32_t phase2);
 
-uint32_t drehgrad_messer();
-
 uint32_t s6_leser();
 
 void input_init();

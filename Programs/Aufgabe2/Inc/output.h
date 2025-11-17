@@ -4,9 +4,9 @@
 #include <stdint.h>
 #define MODER_MASK_PE7 (0x33 << (8*2))
 
-void drehwinkel_ausgeben(uint32_t val);
+void drehwinkel_ausgeben(double val);
 
-void winkelgeschwindigkeit_ausgeben(uint32_t val);
+void winkelgeschwindigkeit_ausgeben(double val);
 
 void led_einschalten();
 

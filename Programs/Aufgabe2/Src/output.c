@@ -14,18 +14,19 @@
 /**
  * @brief Der Drehwinkel wird auf dem Display ausgegeben
  */
-void drehwinkel_ausgeben(uint32_t val){
-    //lcdPrintS("Winkel\t:%d\tGrad", val);
-    printf("Winkel\t:%d\tGrad", val);
+void drehwinkel_ausgeben(double val){
+    lcdGotoXY(25, 25);
+    printf("Winkel\t:%f\tGrad", val);
 }
 
 
 /**
  * @brief die Geschwindigkeit wird auf dem Display ausgegeben
  */
-void winkelgeschwindigkeit_ausgeben(uint32_t val){
+void winkelgeschwindigkeit_ausgeben(double val){
+    lcdGotoXY(25, 50);
     //lcdPrintS("Geschwindigkeit\t:%u\tGrad/s");
-    printf("Winkel\t:%d\tGrad", val);
+    printf("Winkel\t:%f\tGrad/s", val);
 }
 
 void led_einschalten(){
