@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "output.h"
+#include "input.h"
 
 // Kanal A = GPIOF IDR PIN 0 
 // Kanal B = GPIOF IDR PIN 1
@@ -14,6 +15,10 @@
 #define VORWÄRTSLAUF 0x03
 #define FEHLER 0x04
 
+#define MODER_MASK_PF0_PF1 0x3
+#define MODER_MASK_PF7 (0x33 << (7*2))
+
+
 /**
  * @brief Hier wird das Signal aus den Kanälen (aus dem 
  * Pi Pico) gelesen und den einzelnen Phasen zugeordnet
@@ -22,6 +27,7 @@
  */
 uint32_t zuordnung_Signal(){
     uint8_t current = (uint8_t)GPIOF->IDR;
+
     uint8_t state = (current & 0x03); //um pf0 und pf1 anzugucken im idr register, der rest ist egal
     if (PHASE_A == state){
         return PHASE_A;
@@ -40,7 +46,7 @@ uint32_t zuordnung_Signal(){
  * @param phase2 die zweite aufgezeichnete Phase
  * @return Gibt den Phasenwechsel zurück
  */
-uint32_t zuordnung_Phasenwechsel(uint8_t phase1, uint8_t phase2){
+uint32_t zuordnung_Phasenwechsel(uint32_t phase1, uint32_t phase2){
     //uint8_t letztePhase;
     //uint8_t aktuellePhase;
 
@@ -144,7 +150,19 @@ uint32_t drehgrad_messer(){
 }
 
 uint32_t s6_leser(){
+    uint8_t current = (uint8_t)GPIOE->IDR;
+    uint8_t s6_mask = (1U<<6);
+    
     //hier soll gelesen werden, ob s6 gedrückt wurde
+    uint8_t state = (current & s6_mask);
+    if (state == current){
+        fehler_zurücksetzen();
+    }
     return 1;
+}
+
+void input_init(){
+    GPIOF->MODER &= ~MODER_MASK_PF0_PF1;
+    GPIOF->MODER &= ~MODER_MASK_PF7;
 }
 

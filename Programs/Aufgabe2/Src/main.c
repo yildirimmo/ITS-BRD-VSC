@@ -18,6 +18,12 @@
 #include "error.h"
 #include <stdint.h>
 #include "output.h"
+#include "input.h"
+
+static uint8_t letztePhase = PHASE_A;
+static int32_t phasenZähler = 0;
+static int32_t letzter_zähler = 0;
+static uint32_t last_ts = 0;
 
 int main(void) {
 	initITSboard();    // Initialisierung des ITS Boards
@@ -26,6 +32,8 @@ int main(void) {
 	TP_Init(false);                 // Initialisierung des LCD Boards mit Touch
 
 	initTimer();					// Initialisierung des LCD Boards
+	input_init();
+	output_init();
 	
 
 	uint32_t last_update = 0;
@@ -34,7 +42,7 @@ int main(void) {
 	uint8_t mach_update;
 
 
-	
+	last_ts = getTimeStamp();
 	// Test in Endlosschleife
 	while(1) {
 
@@ -62,21 +70,6 @@ int main(void) {
 
 }
 
-static void check_vorwaerts(){
-
-}
-
-static void check_rueckwaerts(){
-/*if Phase B -> phase A
- if phase A -> phase D
- if phase D -> phase C
- if phase C-> phase b
- */
-}
-
-static void check_fehler(){
-
-}
 
 
 

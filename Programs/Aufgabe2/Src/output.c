@@ -4,7 +4,9 @@
 #include "lcd.h"
 #include "timer.h"
 #include "input.h"
+#include "output.h"
 
+#define MODER_MASK_PE7 (0x33 << (8*2))
 
 
 
@@ -12,7 +14,7 @@
 /**
  * @brief Der Drehwinkel wird auf dem Display ausgegeben
  */
-void drehwinkel_ausgeben(uint16_t val){
+void drehwinkel_ausgeben(uint32_t val){
     //lcdPrintS("Winkel\t:%d\tGrad", val);
     printf("Winkel\t:%d\tGrad", val);
 }
@@ -21,7 +23,7 @@ void drehwinkel_ausgeben(uint16_t val){
 /**
  * @brief die Geschwindigkeit wird auf dem Display ausgegeben
  */
-void winkelgeschwindigkeit_ausgeben(uint16_t val){
+void winkelgeschwindigkeit_ausgeben(uint32_t val){
     //lcdPrintS("Geschwindigkeit\t:%u\tGrad/s");
     printf("Winkel\t:%d\tGrad", val);
 }
@@ -43,5 +45,13 @@ void led_rueckwaerts(){
 void led_fehler(){
     //d21 anschalten
     GPIOE->BSRR = (0x01 << 6);
+}
+
+void fehler_zurücksetzen(){
+    GPIOE->BSRR = (0x01 << (6 + 16));
+}
+
+void output_init(){
+    GPIOE->MODER &= ~MODER_MASK_PE7;
 }
 
