@@ -49,7 +49,7 @@ int main(void) {
 
 	double last_winkel = drehwinkelrechner(phasenZähler);
 
-	uint32_t time = 0; //um zu sehen, wie viel millisekunden vorbei sind, um alle 250 ms display upzudaten
+	double time = 0.0f; //um zu sehen, wie viel millisekunden vorbei sind, um alle 250 ms display upzudaten
 
 	double geschwindigkeit = 0;
 
@@ -72,8 +72,7 @@ int main(void) {
 
 		last_winkel = current_winkel;
 
-		time += ( last_ts - current_ts ) * (1/90);
-		last_ts = current_ts;
+		time += ( last_ts - current_ts ) * (1.0/90); //um sek herauszubekommen
 
 		
 		//switch um phasenwechsel zuzuordnen
@@ -101,9 +100,12 @@ int main(void) {
 
 		//update display
 		
-		if (current_ts - last_ts >= 250){
+		if (time >= 0.25f){
 			last_ts = current_ts;
+			drehwinkel_ausgeben(drehwinkelrechner(phasenZähler));
+			winkelgeschwindigkeit_ausgeben(geschwindigkeit);
 		} else {
+			current_ts = last_ts;
 		}
 
 		
