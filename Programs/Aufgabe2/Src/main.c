@@ -21,11 +21,6 @@
 #include "input.h"
 #include "calc.h"
 
-static uint8_t letztePhase = PHASE_A;
-static int32_t phasenZähler = 0;
-static int32_t letzter_zähler = 0;
-static uint32_t last_ts = 0;
-uint32_t current_ts = 0;
 
 int main(void) {
 	initITSboard();    // Initialisierung des ITS Boards
@@ -36,26 +31,50 @@ int main(void) {
 	initTimer();					// Initialisierung des LCD Boards
 	input_init();
 	output_init();
-	
-	
-	uint8_t mach_update;
-	
-	uint8_t current_phase;
 
-	uint32_t zuordnung;
+	
+	int32_t phasenZähler = 0;
+	
+	uint32_t current_ts = 0;
+	
+	uint8_t current_phase = 0;
 
-	double current_winkel;
-	letztePhase = zuordnung_Signal();
-	last_ts = getTimeStamp();
+	uint32_t zuordnung = 0;
+
+	double current_winkel = 0.0f;
+
+	uint8_t letztePhase = zuordnung_Signal() & 0x03;
+
+	uint32_t last_ts = getTimeStamp();
+
 	double last_winkel = drehwinkelrechner(phasenZähler);
+
+	uint32_t time = 0; //um zu sehen, wie viel millisekunden vorbei sind, um alle 250 ms display upzudaten
+
+	double geschwindigkeit = 0;
+
+
 	// Test in Endlosschleife
 	while(1) {
 
 		
-		current_phase = zuordnung_Signal();
+		current_phase = zuordnung_Signal() & 0x03;
+
 		current_ts = getTimeStamp();
+
 		current_winkel = drehwinkelrechner(phasenZähler);
-		uint32_t zuordnung = zuordnung_Phasenwechsel(letztePhase, current_phase);
+		
+		zuordnung = zuordnung_Phasenwechsel(letztePhase, current_phase);
+
+		geschwindigkeit = geschwindigkeitsrechner(current_winkel, last_winkel, current_ts, last_ts);
+		
+		letztePhase = current_phase;
+
+		last_winkel = current_winkel;
+
+		time += ( last_ts - current_ts ) * (1/90);
+		last_ts = current_ts;
+
 		
 		//switch um phasenwechsel zuzuordnen
 		switch(zuordnung){
@@ -84,9 +103,7 @@ int main(void) {
 		
 		if (current_ts - last_ts >= 250){
 			last_ts = current_ts;
-			mach_update = 1;
 		} else {
-			mach_update = 0;
 		}
 
 		

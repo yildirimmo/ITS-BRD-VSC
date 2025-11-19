@@ -4,6 +4,9 @@
 static int32_t maxDegree = 360;
 static int32_t maxCount = 1200;
 
+/**
+ * @param val = Phasenzähler
+ */
 double drehwinkelrechner(int32_t val){
     double temp = ((double)maxDegree / (double)maxCount) * val ;
     double result = 0;
