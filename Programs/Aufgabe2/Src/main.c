@@ -48,19 +48,19 @@ int main(void) {
 
     double last_winkel = drehwinkelrechner(phasenZähler);
 
-    double time_messung = 0.0f; // gesammelte Zeit in Mikrosekunden
-
     uint32_t diff_ticks = 0;
 
     double verstrichene_zeit = 0.0f;
 
     uint8_t mach_update = 1;
-    /*lcdGotoXY(0, 5);
-    lcdPrintS("Winkel: ");
-    lcdGotoXY(17, 5);
-    lcdPrintS("Grad");
-    */
 
+    double speed = 0.0;
+
+    lcdGotoXY(2, 3);
+    lcdPrintS("Winkel: ");
+
+    lcdGotoXY(2, 5);
+    lcdPrintS("Speed: ");
 
     // Test in Endlosschleife
     while(1) {
@@ -79,13 +79,14 @@ int main(void) {
         current_ts = getTimeStamp();
 
         // Aktuelle Phase einlesen
-        current_phase = zuordnung_Signal() & 0x03;
+        current_phase = zuordnung_Signal();
 
         // Winkelberechnung
         current_winkel = drehwinkelrechner(phasenZähler);
         
         // Phasenwechsel bestimmen
         zuordnung = zuordnung_Phasenwechsel(letztePhase, current_phase);
+        letztePhase = current_phase;
 
         // switch um phasenwechsel zuzuordnen und LEDs zu setzen
         switch(zuordnung){
@@ -116,12 +117,6 @@ int main(void) {
                 break;
         }
 
-        
-        
-        
-        
-
-
         // Zeitmessung
         diff_ticks = current_ts - last_ts; 
 
@@ -129,31 +124,29 @@ int main(void) {
         // Beispiel: 90 Ticks sind 1 µs.
         verstrichene_zeit = (double)diff_ticks / 90.0;
 
-        // Zur gesammelten Zeit addieren
-        time_messung += verstrichene_zeit;
-
-        // Sind 250.000 Mikrosekunden (500ms) vergangen?
-        if (time_messung >= 500000.0) {
+        // Sind 250.000 Mikrosekunden (250ms) vergangen?
+        if ((zuordnung != NOCHANGE && verstrichene_zeit >= 250000.0) || 
+            verstrichene_zeit >= 500000.0) 
+            //das in der IF haben wir mit anton gemacht  
+            //vorher war: verstrichene_zeit <= 250.000 
+            {
             
             // Sekundenumrechnung
-            double time_in_seconds = time_messung / 1000000.0; 
+            double time_in_seconds = verstrichene_zeit / 1000000.0; 
 
             // Winkeländerung / Zeit in Sekunden
-            double speed = 0.0;
             if (time_in_seconds > 0.0) {
-                 speed = (current_winkel - last_winkel) / time_in_seconds; //(w2 - w1) / (t2 - t1)
+                speed = (current_winkel - last_winkel) / time_in_seconds; //(w2 - w1) / (t2 - t1)
             }
-            
-            // Ausgabe
-            drehwinkel_ausgeben(current_winkel);
-            //winkelgeschwindigkeit_ausgeben(speed); // Zeigt Grad/Sekunde an
 
             // Reset
             last_winkel = current_winkel;
             last_ts = current_ts; 
-            letztePhase = current_phase;
-            time_messung = 0.0;
         }
+
+        // Ausgabe
+        drehwinkel_ausgeben(current_winkel);
+        winkelgeschwindigkeit_ausgeben(speed); // Zeigt Grad/Sekunde an
     }
 }
 

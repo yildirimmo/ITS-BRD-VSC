@@ -11,33 +11,51 @@
 static char buffer_alt[BUFFER_SIZE];
 static char buffer[BUFFER_SIZE];
 
+static char speed_buffer_alt[BUFFER_SIZE];
+static char speed_buffer[BUFFER_SIZE];
+
+
+static int winkel_i, speed_i;
+
 /**
  * @brief Der Drehwinkel wird auf dem Display ausgegeben
  */
 void drehwinkel_ausgeben(double val){
     //lcdPrintS Winkel und deg:  in main
-    snprintf(buffer, BUFFER_SIZE, "%7.2f", val); //50 magic number und benutze snprintf
-    for(int i = 0; i<8 ; i++){
 
-        if (buffer[i] != buffer_alt[i]){
-            buffer_alt[i] = buffer[i];
-            lcdGotoXY(i, 3);
-            lcdPrintC(buffer[i]);
-        }
-        
+    if(winkel_i == 0) {
+        snprintf(buffer, BUFFER_SIZE, "%7.2f", val);
+    }
+
+    if(buffer[winkel_i] != buffer_alt[winkel_i]) {
+        buffer_alt[winkel_i] = buffer[winkel_i];
+        lcdGotoXY(winkel_i + 10, 3);
+        lcdPrintC(buffer[winkel_i]);
+    }
+
+    ++winkel_i;
+    if(winkel_i == 8) {
+        winkel_i = 0;
     }
 }
-
-
 /**
  * @brief die Geschwindigkeit wird auf dem Display ausgegeben
  */
-void winkelgeschwindigkeit_ausgeben(double val){
-    /*snprintf(buffer, BUFFER_SIZE, "Speed:  %.2f deg/s   ", val);
-    lcdGotoXY(2, 5);
-    lcdPrintS(buffer);
-    */
+void winkelgeschwindigkeit_ausgeben(double val){    
+    if(speed_i == 0) {
+        snprintf(speed_buffer, BUFFER_SIZE, "%7.2f", val);
+    }
 
+    if(speed_buffer[speed_i] != speed_buffer_alt[speed_i]) {
+        speed_buffer_alt[speed_i] = speed_buffer[speed_i];
+        lcdGotoXY(speed_i + 10, 5);
+        lcdPrintC(speed_buffer[speed_i]);
+    }
+
+    ++speed_i;
+    if(speed_i == 8) {
+        speed_i = 0;
+    }
 }
 
 void led_einschalten(uint32_t val){
@@ -66,12 +84,12 @@ void led_fehler(){
 }
 
 void led_nochange(){
-    GPIOE->BSRR = (1 << (7 + 15)) | (1 << (7 + 16));
+    //GPIOE->BSRR = (1 << (7 + 15)) | (1 << (7 + 16));
 }
 
 void fehler_zurücksetzen(){
     // d21 aus (Reset Pin 6)
-    GPIOE->BSRR = (1 << (5+16));
+    GPIOE->BSRR = (1U << (5+16));
 }
 
 void output_init(){

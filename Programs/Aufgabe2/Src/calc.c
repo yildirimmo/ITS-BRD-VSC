@@ -10,6 +10,7 @@ double drehwinkelrechner(int32_t val){
     600/1200 = 0,5
     0,5 * 360 = 180
     */
+   
     return ((double)val / COUNTS_MAX) * DEGREE_MAX;
 }
 

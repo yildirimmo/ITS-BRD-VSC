@@ -27,19 +27,9 @@
  * 
  * @return state, welches den jetzigen Zustand abbildet
  */
-uint32_t zuordnung_Signal(){
-    uint8_t current = (uint8_t)GPIOF->IDR;
-
-    uint8_t state = (current & 0x03); //um pf0 und pf1 anzugucken im idr register, der rest ist egal
-    if (PHASE_A == state){
-        return PHASE_A;
-    }else if (PHASE_B == state){
-        return PHASE_B;
-    }else if (PHASE_C == state){
-        return PHASE_C;
-    }else {
-        return PHASE_D;
-    }
+uint32_t zuordnung_Signal()
+{
+    return GPIOF->IDR & 0x03; //um pf0 und pf1 anzugucken im idr register, der rest ist egal
 }
 
 /**
@@ -147,8 +137,8 @@ uint32_t zuordnung_Phasenwechsel(uint32_t phase1, uint32_t phase2){
 
 
 void s6_leser(uint8_t * val){
-    uint8_t current = (uint8_t)GPIOF->IDR;
-    uint8_t s6_mask = (1U<<6);
+    uint8_t current = ((uint8_t)(GPIOF->IDR)) | (0x03); //0x03 für pf0 und pf1, da diese mal aus, mal an sind
+    uint8_t s6_mask = (0xFF) & (~(1U<<6));
     
     //hier soll gelesen werden, ob s6 gedrückt wurde
     uint8_t state = (current & s6_mask);
