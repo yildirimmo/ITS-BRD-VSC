@@ -54,9 +54,26 @@ int main(void) {
 
     double verstrichene_zeit = 0.0f;
 
+    uint8_t mach_update = 1;
+    /*lcdGotoXY(0, 5);
+    lcdPrintS("Winkel: ");
+    lcdGotoXY(17, 5);
+    lcdPrintS("Grad");
+    */
+
 
     // Test in Endlosschleife
     while(1) {
+
+        //Zeitmessung mit Oszilloskop
+        if (mach_update){
+            GPIOE->BSRR = (1U << 3);
+            mach_update = 0;
+        } 
+        else if(mach_update == 0){
+            GPIOE->BSRR = (1U << (3+16));
+            mach_update = 1;
+        }
         
         // aktuellen ts holen
         current_ts = getTimeStamp();
@@ -91,9 +108,9 @@ int main(void) {
             
             case FEHLER:
                 led_fehler();
-                uint8_t val = 1;
+                uint8_t val = 1U;
                 // Erkennung ob s6 gedrückt wurde
-                while (val){
+                while (val == 1U){
                     s6_leser(&val);
                 }
                 break;
@@ -129,7 +146,7 @@ int main(void) {
             
             // Ausgabe
             drehwinkel_ausgeben(current_winkel);
-            winkelgeschwindigkeit_ausgeben(speed); // Zeigt Grad/Sekunde an
+            //winkelgeschwindigkeit_ausgeben(speed); // Zeigt Grad/Sekunde an
 
             // Reset
             last_winkel = current_winkel;

@@ -139,7 +139,7 @@ uint32_t zuordnung_Phasenwechsel(uint32_t phase1, uint32_t phase2){
         }
         else{
             //aktuellePhase = PHASE_D;
-            
+
             return NOCHANGE;
         }
     }
@@ -147,7 +147,7 @@ uint32_t zuordnung_Phasenwechsel(uint32_t phase1, uint32_t phase2){
 
 
 void s6_leser(uint8_t * val){
-    uint8_t current = (uint8_t)GPIOE->IDR;
+    uint8_t current = (uint8_t)GPIOF->IDR;
     uint8_t s6_mask = (1U<<6);
     
     //hier soll gelesen werden, ob s6 gedrückt wurde
@@ -156,7 +156,7 @@ void s6_leser(uint8_t * val){
    
     if (state == current){
         fehler_zurücksetzen();
-        *val = 0;
+        *val = 0U;
     }
     
 }

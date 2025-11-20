@@ -7,18 +7,25 @@
 #include "output.h"
 
 
+#define BUFFER_SIZE 32
+static char buffer_alt[BUFFER_SIZE];
+static char buffer[BUFFER_SIZE];
 
-
-static char buffer[50];
 /**
  * @brief Der Drehwinkel wird auf dem Display ausgegeben
  */
 void drehwinkel_ausgeben(double val){
-    
-    sprintf(buffer, "Winkel: %.2f deg    ", val); //50 magic number und benutze snprintf
-    lcdGotoXY(2, 3);
-    lcdPrintS(buffer);
-    
+    //lcdPrintS Winkel und deg:  in main
+    snprintf(buffer, BUFFER_SIZE, "%7.2f", val); //50 magic number und benutze snprintf
+    for(int i = 0; i<8 ; i++){
+
+        if (buffer[i] != buffer_alt[i]){
+            buffer_alt[i] = buffer[i];
+            lcdGotoXY(i, 3);
+            lcdPrintC(buffer[i]);
+        }
+        
+    }
 }
 
 
@@ -26,9 +33,10 @@ void drehwinkel_ausgeben(double val){
  * @brief die Geschwindigkeit wird auf dem Display ausgegeben
  */
 void winkelgeschwindigkeit_ausgeben(double val){
-    sprintf(buffer, "Speed:  %.2f deg/s   ", val);
+    /*snprintf(buffer, BUFFER_SIZE, "Speed:  %.2f deg/s   ", val);
     lcdGotoXY(2, 5);
     lcdPrintS(buffer);
+    */
 
 }
 
