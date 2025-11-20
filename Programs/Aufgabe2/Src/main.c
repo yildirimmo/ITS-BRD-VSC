@@ -73,34 +73,40 @@ int main(void) {
         // switch um phasenwechsel zuzuordnen und LEDs zu setzen
         switch(zuordnung){
             case VORWÄRTSLAUF:
-                led_vorwaerts();
                 phasenZähler++;
                 led_einschalten(phasenZähler); // LEDs Binärzähler update noch zu implementieren
+                led_vorwaerts();
                 break;
 
-            case RÜCKWÄRTSLAUF:
-                led_rueckwaerts();
+            case RÜCKWÄRTSLAUF:               
                 phasenZähler--;
                 led_einschalten(phasenZähler); // LEDs Binärzähler update noch zu implementieren
+                led_rueckwaerts();
                 break;
 
             case NOCHANGE:
+                //led_nochange();
+                //Nochange Ausgabe
                 break;
             
             case FEHLER:
                 led_fehler();
+                uint8_t val = 1;
+                // Erkennung ob s6 gedrückt wurde
+                while (val){
+                    s6_leser(&val);
+                }
                 break;
         }
 
-        letztePhase = current_phase;
         
-        // Erkennung ob s6 gedrückt wurde
-        s6_leser();
+        
+        
+        
 
 
         // Zeitmessung
         diff_ticks = current_ts - last_ts; 
-        last_ts = current_ts; 
 
         // Ticks in Mikrosekunden umrechnen (Ticks / 90 = mikros)
         // Beispiel: 90 Ticks sind 1 µs.
@@ -109,8 +115,8 @@ int main(void) {
         // Zur gesammelten Zeit addieren
         time_messung += verstrichene_zeit;
 
-        // Sind 250.000 Mikrosekunden (250ms) vergangen?
-        if (time_messung >= 250000.0) {
+        // Sind 250.000 Mikrosekunden (500ms) vergangen?
+        if (time_messung >= 500000.0) {
             
             // Sekundenumrechnung
             double time_in_seconds = time_messung / 1000000.0; 
@@ -125,12 +131,13 @@ int main(void) {
             drehwinkel_ausgeben(current_winkel);
             winkelgeschwindigkeit_ausgeben(speed); // Zeigt Grad/Sekunde an
 
-            // Reset für die nächste Runde
+            // Reset
             last_winkel = current_winkel;
+            last_ts = current_ts; 
+            letztePhase = current_phase;
             time_messung = 0.0;
         }
     }
-
 }
 
 // EOF

@@ -9,12 +9,16 @@
 
 
 
-
+static char buffer[50];
 /**
  * @brief Der Drehwinkel wird auf dem Display ausgegeben
  */
 void drehwinkel_ausgeben(double val){
-    printf("Winkel: %.2f deg    ", val);
+    
+    sprintf(buffer, "Winkel: %.2f deg    ", val); //50 magic number und benutze snprintf
+    lcdGotoXY(2, 3);
+    lcdPrintS(buffer);
+    
 }
 
 
@@ -22,8 +26,9 @@ void drehwinkel_ausgeben(double val){
  * @brief die Geschwindigkeit wird auf dem Display ausgegeben
  */
 void winkelgeschwindigkeit_ausgeben(double val){
-    printf("Speed:  %.2f deg/s   ", val);
-    
+    sprintf(buffer, "Speed:  %.2f deg/s   ", val);
+    lcdGotoXY(2, 5);
+    lcdPrintS(buffer);
 
 }
 
@@ -38,24 +43,27 @@ void led_einschalten(uint32_t val){
 
 void led_vorwaerts(){
     // d23 an (Pin 8 Port E), d22 aus
-    GPIOE->BSRR = (1 << 8);      // Set Pin 8
-    GPIOE->BSRR = (1 << (7+16)); // Reset Pin 7
+    GPIOE->BSRR = (1 << 7) | (1 << (6 + 16));
 }
 
 void led_rueckwaerts(){
     // d22 an (Pin 7 Port E), d23 aus
-    GPIOE->BSRR = (1 << 7);      // Set Pin 7
-    GPIOE->BSRR = (1 << (8+16)); // Reset Pin 8
+    GPIOE->BSRR = (1 << 6) | (1 << (7 + 16));
 }
 
 void led_fehler(){
     // d21 an
-    GPIOE->BSRR = (1 << 6);
+
+    GPIOE->BSRR = (1 << 5) | (1 << (7 + 15)) | (1 << (7 + 16));
+}
+
+void led_nochange(){
+    GPIOE->BSRR = (1 << (7 + 15)) | (1 << (7 + 16));
 }
 
 void fehler_zurücksetzen(){
     // d21 aus (Reset Pin 6)
-    GPIOE->BSRR = (1 << (6+16));
+    GPIOE->BSRR = (1 << (5+16));
 }
 
 void output_init(){

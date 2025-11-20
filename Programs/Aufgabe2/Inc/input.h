@@ -17,7 +17,7 @@ uint32_t zuordnung_Signal();
 
 uint32_t zuordnung_Phasenwechsel(uint32_t phase1, uint32_t phase2);
 
-uint32_t s6_leser();
+void s6_leser(uint8_t *val);
 
 void input_init();
 #endif

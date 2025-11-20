@@ -10,6 +10,8 @@
 #define PHASE_B 0x01 //Kanal A = 1, Kanal B = 0
 #define PHASE_C 0x03 //Kanal A = 1, Kanal B = 1
 #define PHASE_D 0x02 //Kanal A = 0, Kanal B = 1
+
+//Zuordnung
 #define RÜCKWÄRTSLAUF 0x01
 #define NOCHANGE 0x02
 #define VORWÄRTSLAUF 0x03
@@ -137,22 +139,26 @@ uint32_t zuordnung_Phasenwechsel(uint32_t phase1, uint32_t phase2){
         }
         else{
             //aktuellePhase = PHASE_D;
+            
             return NOCHANGE;
         }
     }
 }
 
 
-uint32_t s6_leser(){
+void s6_leser(uint8_t * val){
     uint8_t current = (uint8_t)GPIOE->IDR;
     uint8_t s6_mask = (1U<<6);
     
     //hier soll gelesen werden, ob s6 gedrückt wurde
     uint8_t state = (current & s6_mask);
+    
+   
     if (state == current){
         fehler_zurücksetzen();
+        *val = 0;
     }
-    return 1;
+    
 }
 
 void input_init(){

@@ -16,6 +16,8 @@ void led_rueckwaerts();
 
 void led_fehler();
 
+void led_nochange();
+
 void fehler_zurücksetzen();
 
 void output_init();
