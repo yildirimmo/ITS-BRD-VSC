@@ -15,7 +15,7 @@
 #define VORWÄRTSLAUF 0x03
 #define FEHLER 0x04
 
-#define MODER_MASK_PF0_PF1 0x3
+#define MODER_MASK_PF0_PF1 0xF
 #define MODER_MASK_PF7 (0x33 << (7*2))
 
 

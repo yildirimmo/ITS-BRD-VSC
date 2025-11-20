@@ -1,22 +1,26 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-static int32_t maxDegree = 360;
-static int32_t maxCount = 1200;
+#include "calc.h"
 
-/**
- * @param val = Phasenzähler
- */
+#define TICKS_PER_SECOND 90000000.0 // Timer läuft mit 90 MHz (90 Ticks pro us)
+#define COUNTS_MAX 1200.0       
+#define DEGREE_MAX 360
+
 double drehwinkelrechner(int32_t val){
-    double temp = ((double)maxDegree / (double)maxCount) * val ;
-    double result = 0;
-    result = (maxCount * temp)/360;
-    return result;
+    /*
+    Beispiel: val = 600
+    600/1200 = 0,5
+    0,5 * 360 = 180
+    */
+    return ((double)val / COUNTS_MAX) * DEGREE_MAX;
 }
 
-double geschwindigkeitsrechner(double winkel2, double winkel1, uint32_t t2, uint32_t t1){
-    double zähler = winkel2 - winkel1;
-    double nenner = (double)t2 - (double)t1; 
-    double result = zähler/nenner;
-    return result;
+double geschwindigkeitsrechner(double winkel_neu, double winkel_alt, double zeit_in_sek){
+    double winkel_diff = winkel_neu - winkel_alt;
+
+    // Division durch null 
+    if(zeit_in_sek == 0.0) {
+        return 0.0;
+    }
+
+    // Berechnung: Grad pro Sekunde
+    return winkel_diff / zeit_in_sek;
 }

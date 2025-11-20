@@ -8,7 +8,7 @@ void drehwinkel_ausgeben(double val);
 
 void winkelgeschwindigkeit_ausgeben(double val);
 
-void led_einschalten();
+void led_einschalten(uint32_t val);
 
 void led_vorwaerts();
 
